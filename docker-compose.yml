@@ -34,6 +34,8 @@ services:
 
     expose:
       - 3333
+      - 8080
+      - 8888
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
