@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = git@gitlab.com:acdh-oeaw/oebl/oebl-irs-devops.git
+	url = ../oebl-irs-devops.git
 [submodule "frontend"]
 	path = frontend
-	url = git@gitlab.com:acdh-oeaw/oebl/oebl-research-tool-front-end.git
+	url = ../oebl-research-tool-front-end.git
