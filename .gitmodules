@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = ../oebl-irs-devops.git
+	url = ../apis-oebl-irs-devops.git
 [submodule "frontend"]
 	path = frontend
-	url = ../oebl-research-tool-front-end.git
+	url = ../apis-oebl-research-tool-front-end.git
