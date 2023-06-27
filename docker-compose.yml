@@ -8,12 +8,14 @@ services:
 
     volumes:
       - ./backend:/workspace:cached
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.gitconfig:/root/.gitconfig/config
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
     expose:
       - 8000
+    networks:
+      - local
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
 
@@ -30,12 +32,14 @@ services:
 
     volumes:
       - ./frontend:/workspace:cached
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.gitconfig:/root/.gitconfig/config
 
     expose:
       - 3333
       - 8080
       - 8888
+    networks:
+      - local
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
@@ -51,6 +55,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+    networks:
+      - local
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
@@ -58,6 +64,11 @@ services:
   rabbitmq:
     image: rabbitmq
     restart: unless-stopped
+    networks:
+      - local
 
 volumes:
   postgres-data:
+networks:
+  local:
+    driver: bridge
